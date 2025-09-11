@@ -70,9 +70,256 @@ Crie uma base de dados vazia no seu MySQL com o nome feedbackedu_db.
 
 Abra o ficheiro src/main/resources/application.properties e atualize as propriedades spring.datasource.username e spring.datasource.password com as suas credenciais do MySQL.
 
-Execute a Aplicação:
+Delimitação das Camadas para Entrega  
 
-Abra um terminal na pasta raiz do projeto (a pasta que contém o pom.xml).
+Para fins de avaliação e entrega das tarefas de forma separada, os artefactos de código correspondentes a cada camada estão organizados da seguinte forma:  
+
+Artefactos da Camada de Domínio  
+
+A Camada de Domínio é responsável por representar os conceitos do negócio e conter as regras e lógicas centrais do sistema. Os ficheiros que compõem esta camada são:  
+
+
+Entidades de Domínio (As "peças" do sistema):  
+
+
+src/main/java/com/feedbackedu/domain/Usuario.java  
+
+src/main/java/com/feedbackedu/domain/Professor.java  
+
+src/main/java/com/feedbackedu/domain/Aluno.java  
+
+src/main/java/com/feedbackedu/domain/Turma.java  
+
+src/main/java/com/feedbackedu/domain/Inscricao.java
+
+src/main/java/com/feedbackedu/domain/Feedback.java  
+
+Serviços de Domínio (O "cérebro" com as regras de negócio):  
+
+src/main/java/com/feedbackedu/service/UsuarioService.java  
+
+src/main/java/com/feedbackedu/service/TurmaService.java  
+
+src/main/java/com/feedbackedu/service/FeedbackService.java  
+
+Artefactos da Camada de Persistência  
+
+A Camada de Persistência é responsável por abstrair e gerir a comunicação com o banco de dados, escondendo os detalhes de armazenamento do resto da aplicação.  
+
+Repositórios / DAOs (A "ponte" para os dados):  
+
+src/main/java/com/feedbackedu/repository/UsuarioRepository.java  
+
+src/main/java/com/feedbackedu/repository/ProfessorRepository.java  
+
+src/main/java/com/feedbackedu/repository/AlunoRepository.java  
+
+src/main/java/com/feedbackedu/repository/TurmaRepository.java  
+
+src/main/java/com/feedbackedu/repository/InscricaoRepository.java  
+
+src/main/java/com/feedbackedu/repository/FeedbackRepository.java  
+
+Configuração da Conexão:  
+
+src/main/resources/application.properties (especificamente as propriedades spring.datasource.* e spring.jpa.*)
+
+Delimitação das Camadas para Entrega
+Para fins de avaliação e entrega das tarefas de forma separada, os artefactos de código correspondentes a cada camada estão organizados da seguinte forma:
+
+Artefactos da Camada de Domínio
+A Camada de Domínio é responsável por representar os conceitos do negócio e conter as regras e lógicas centrais do sistema. Os ficheiros que compõem esta camada são:
+
+Entidades de Domínio (As "peças" do sistema):
+
+src/main/java/com/feedbackedu/domain/Usuario.java
+
+src/main/java/com/feedbackedu/domain/Professor.java
+
+src/main/java/com/feedbackedu/domain/Aluno.java
+
+src/main/java/com/feedbackedu/domain/Turma.java
+
+src/main/java/com/feedbackedu/domain/Inscricao.java
+
+src/main/java/com/feedbackedu/domain/Feedback.java
+
+Serviços de Domínio (O "cérebro" com as regras de negócio):
+
+src/main/java/com/feedbackedu/service/UsuarioService.java
+
+src/main/java/com/feedbackedu/service/TurmaService.java
+
+src/main/java/com/feedbackedu/service/FeedbackService.java
+
+Artefactos da Camada de Persistência
+A Camada de Persistência é responsável por abstrair e gerir a comunicação com o banco de dados, escondendo os detalhes de armazenamento do resto da aplicação.
+
+Repositórios / DAOs (A "ponte" para os dados):
+
+src/main/java/com/feedbackedu/repository/UsuarioRepository.java
+
+src/main/java/com/feedbackedu/repository/ProfessorRepository.java
+
+src/main/java/com/feedbackedu/repository/AlunoRepository.java
+
+src/main/java/com/feedbackedu/repository/TurmaRepository.java
+
+src/main/java/com/feedbackedu/repository/InscricaoRepository.java
+
+src/main/java/com/feedbackedu/repository/FeedbackRepository.java
+
+Configuração da Conexão:
+
+src/main/resources/application.properties (especificamente as proprieDelimitação das Camadas para Entrega
+Para fins de avaliação e entrega das tarefas de forma separada, os artefactos de código correspondentes a cada camada estão organizados da seguinte forma:
+
+Artefactos da Camada de Domínio
+A Camada de Domínio é responsável por representar os conceitos do negócio e conter as regras e lógicas centrais do sistema. Os ficheiros que compõem esta camada são:
+
+Entidades de Domínio (As "peças" do sistema):
+
+src/main/java/com/feedbackedu/domain/Usuario.java
+
+src/main/java/com/feedbackedu/domain/Professor.java
+
+src/main/java/com/feedbackedu/domain/Aluno.java
+
+src/main/java/com/feedbackedu/domain/Turma.java
+
+src/main/java/com/feedbackedu/domain/Inscricao.java
+
+src/main/java/com/feedbackedu/domain/Feedback.java
+
+Serviços de Domínio (O "cérebro" com as regras de negócio):
+
+src/main/java/com/feedbackedu/service/UsuarioService.java
+
+src/main/java/com/feedbackedu/service/TurmaService.java
+
+src/main/java/com/feedbackedu/service/FeedbackService.java
+
+Artefactos da Camada de Persistência
+A Camada de Persistência é responsável por abstrair e gerir a comunicação com o banco de dados, escondendo os detalhes de armazenamento do resto da aplicação.
+
+Repositórios / DAOs (A "ponte" para os dados):
+
+src/main/java/com/feedbackedu/repository/UsuarioRepository.java
+
+src/main/java/com/feedbackedu/repository/ProfessorRepository.java
+
+src/main/java/com/feedbackedu/repository/AlunoRepository.java
+
+src/main/java/com/feedbackedu/repository/TurmaRepository.java
+
+src/main/java/com/feedbackedu/repository/InscricaoRepository.java
+
+src/main/java/com/feedbackedu/repository/FeedbackRepository.java
+
+Configuração da Conexão:
+
+src/main/resources/application.properties (especificamente as propriedades spring.datasource.* e spring.jpa.*)dades spring.datasource.* e spring.jpa.*)
+Execute a Aplicação:Delimitação das Camadas para Entrega
+Para fins de avaliação e entrega das tarefas de forma separada, os artefactos de código correspondentes a cada camada estão organizados da seguinte forma:
+
+Artefactos da Camada de Domínio
+A Camada de Domínio é responsável por representar os conceitos do negócio e conter as regras e lógicas centrais do sistema. Os ficheiros que compõem esta camada são:
+
+Entidades de Domínio (As "peças" do sistema):
+
+src/main/java/com/feedbackedu/domain/Usuario.java
+
+src/main/java/com/feedbackedu/domain/Professor.java
+
+src/main/java/com/feedbackedu/domain/Aluno.java
+
+src/main/java/com/feedbackedu/domain/Turma.java
+
+src/main/java/com/feedbackedu/domain/Inscricao.java
+
+src/main/java/com/feedbackedu/domain/Feedback.java
+
+Serviços de Domínio (O "cérebro" com as regras de negócio):
+
+src/main/java/com/feedbackedu/service/UsuarioService.java
+
+src/main/java/com/feedbackedu/service/TurmaService.java
+
+src/main/java/com/feedbackedu/service/FeedbackService.java
+
+Artefactos da Camada de Persistência  
+
+A Camada de Persistência é responsável por abstrair e gerir a comunicação com o banco de dados, escondendo os detalhes de armazenamento do resto da aplicação.
+
+Repositórios / DAOs (A "ponte" para os dados):
+
+src/main/java/com/feedbackedu/repository/UsuarioRepository.java
+
+src/main/java/com/feedbackedu/repository/ProfessorRepository.java
+
+src/main/java/com/feedbackedu/repository/AlunoRepository.java
+
+src/main/java/com/feedbackedu/repository/TurmaRepository.java
+
+src/main/java/com/feedbackedu/repository/InscricaoRepository.java
+
+src/main/java/com/feedbackedu/repository/FeedbackRepository.java
+
+Configuração da Conexão:
+
+src/main/resources/application.properties (especificamente as propriedades spring.datasource.* e spring.jpa.*)Delimitação das Camadas para Entrega  
+
+Para fins de avaliação e entrega das tarefas de forma separada, os artefactos de código correspondentes a cada camada estão organizados da seguinte forma:
+
+Artefactos da Camada de Domínio  
+
+A Camada de Domínio é responsável por representar os conceitos do negócio e conter as regras e lógicas centrais do sistema. Os ficheiros que compõem esta camada são:
+
+Entidades de Domínio (As "peças" do sistema):
+
+src/main/java/com/feedbackedu/domain/Usuario.java
+
+src/main/java/com/feedbackedu/domain/Professor.java
+
+src/main/java/com/feedbackedu/domain/Aluno.java
+
+src/main/java/com/feedbackedu/domain/Turma.java
+
+src/main/java/com/feedbackedu/domain/Inscricao.java
+
+src/main/java/com/feedbackedu/domain/Feedback.java
+
+Serviços de Domínio (O "cérebro" com as regras de negócio):
+
+src/main/java/com/feedbackedu/service/UsuarioService.java
+
+src/main/java/com/feedbackedu/service/TurmaService.java
+
+src/main/java/com/feedbackedu/service/FeedbackService.java
+
+Artefactos da Camada de Persistência  
+
+A Camada de Persistência é responsável por abstrair e gerir a comunicação com o banco de dados, escondendo os detalhes de armazenamento do resto da aplicação.
+
+Repositórios / DAOs (A "ponte" para os dados):
+
+src/main/java/com/feedbackedu/repository/UsuarioRepository.java
+
+src/main/java/com/feedbackedu/repository/ProfessorRepository.java
+
+src/main/java/com/feedbackedu/repository/AlunoRepository.java
+
+src/main/java/com/feedbackedu/repository/TurmaRepository.java
+
+src/main/java/com/feedbackedu/repository/InscricaoRepository.java
+
+src/main/java/com/feedbackedu/repository/FeedbackRepository.java
+
+Configuração da Conexão:
+
+src/main/resources/application.properties (especificamente as propriedades spring.datasource.* e spring.jpa.*)   
+
+Abra um terminal na pasta raiz do projeto (a pasta que contém o pom.xml).  
 
 Execute o seguinte comando:
 
