@@ -61,7 +61,7 @@ Um servidor de banco de dados MySQL a ser executado (ex: via XAMPP).
 Passos
 Clone o repositório:
 
-git clone <url-do-seu-repositorio>
+git clone https://github.com/FelipeSilva96/Engenharia_de_software_2
 cd api
 
 Configure a Base de Dados:
