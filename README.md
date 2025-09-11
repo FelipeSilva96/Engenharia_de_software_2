@@ -70,11 +70,11 @@ Crie uma base de dados vazia no seu MySQL com o nome feedbackedu_db.
 
 Abra o ficheiro src/main/resources/application.properties e atualize as propriedades spring.datasource.username e spring.datasource.password com as suas credenciais do MySQL.
 
-Delimitação das Camadas para Entrega  
+**Delimitação das Camadas para Entrega**  
 
 Para fins de avaliação e entrega das tarefas de forma separada, os artefactos de código correspondentes a cada camada estão organizados da seguinte forma:  
 
-Artefactos da Camada de Domínio  
+**Artefactos da Camada de Domínio**  
 
 A Camada de Domínio é responsável por representar os conceitos do negócio e conter as regras e lógicas centrais do sistema. Os ficheiros que compõem esta camada são:  
 
@@ -102,7 +102,7 @@ src/main/java/com/feedbackedu/service/TurmaService.java
 
 src/main/java/com/feedbackedu/service/FeedbackService.java  
 
-Artefactos da Camada de Persistência  
+**Artefactos da Camada de Persistência**  
 
 A Camada de Persistência é responsável por abstrair e gerir a comunicação com o banco de dados, escondendo os detalhes de armazenamento do resto da aplicação.  
 
@@ -124,7 +124,7 @@ Configuração da Conexão:
 
 src/main/resources/application.properties (especificamente as propriedades spring.datasource.* e spring.jpa.*)
 
-Delimitação das Camadas para Entrega
+Delimitação das Camadas para Entrega**
 Para fins de avaliação e entrega das tarefas de forma separada, os artefactos de código correspondentes a cada camada estão organizados da seguinte forma:
 
 Artefactos da Camada de Domínio
