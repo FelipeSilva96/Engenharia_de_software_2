@@ -68,7 +68,7 @@ A Camada de Persistência é responsável por abstrair e gerir a comunicação c
 ### Passos
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/FelipeSilva96/Engenharia_de_software_2](https://github.com/FelipeSilva96/Engenharia_de_software_2)
+    git clone https://github.com/FelipeSilva96/Engenharia_de_software_2/tree/main
     cd api
     ```
 2.  **Configure a Base de Dados:**
