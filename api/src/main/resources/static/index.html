@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Protótipo - feedback.edu</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="login-screen" class="screen active">
+      <div class="login-container">
+        <h1 class="logo">Feedback.Edu</h1>
+        <h2>Acesse sua conta para continuar</h2>
+        <form id="login-form">
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="seuemail@exemplo.com"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label for="password">Senha</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Sua senha"
+              required
+            />
+          </div>
+          <div class="login-options">
+            <label><input type="checkbox" /> Lembrar-me</label>
+            <a href="#">Esqueceu senha?</a>
+          </div>
+          <button type="submit" class="btn btn-primary">Entrar</button>
+        </form>
+        <div class="divider">ou continue com</div>
+        <p class="signup-link">
+          Não tem uma conta? <a href="#">Cadastre-se</a>
+        </p>
+      </div>
+    </div>
+
+    <div id="aluno-dashboard" class="screen">
+      <header class="main-header">
+        <h1 class="logo">Feedback.Edu</h1>
+        <div class="user-menu">
+          <span>Olá, João Aluno</span>
+          <button id="logout-aluno" class="btn btn-secondary">Sair</button>
+        </div>
+      </header>
+      <div class="toggle-view">
+        <p>
+          Use os botões abaixo para alternar entre a visão de Professor e Aluno.
+        </p>
+        <button id="view-prof-from-aluno" class="btn">
+          Ver como Professor
+        </button>
+        <button id="view-aluno-from-aluno" class="btn btn-primary" disabled>
+          Ver como Aluno
+        </button>
+      </div>
+      <main class="container">
+        <h2>Bem-vindo, Aluno!</h2>
+        <p>Envie feedbacks anônimos sobre suas disciplinas.</p>
+        <div class="actions">
+          <button class="btn btn-primary" onclick="showInscricaoModal()">
+            + Inscrever-se em Turma
+          </button>
+        </div>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Engenharia de Software II</h3>
+            <p class="prof-name">Prof. Ana Costa</p>
+            <button
+              class="btn btn-feedback"
+              onclick="showFeedbackModal('Engenharia de Software II')"
+            >
+              ✔ Enviar Feedback
+            </button>
+          </div>
+          <div class="card">
+            <h3>Cálculo Numérico</h3>
+            <p class="prof-name">Prof. Felipe Silva</p>
+            <button
+              class="btn btn-feedback"
+              onclick="showFeedbackModal('Cálculo Numérico')"
+            >
+              ✔ Enviar Feedback
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div id="professor-dashboard" class="screen">
+      <header class="main-header">
+        <h1 class="logo">Feedback.Edu</h1>
+        <div class="user-menu">
+          <span>Olá, Prof. Ana Costa</span>
+          <button id="logout-prof" class="btn btn-secondary">Sair</button>
+        </div>
+      </header>
+      <div class="toggle-view">
+        <p>
+          Use os botões abaixo para alternar entre a visão de Professor e Aluno.
+        </p>
+        <button id="view-prof-from-prof" class="btn btn-primary" disabled>
+          Ver como Professor
+        </button>
+        <button id="view-aluno-from-prof" class="btn">Ver como Aluno</button>
+      </div>
+      <main class="container">
+        <h2>Bem-vindo, Professor!</h2>
+        <p>Gerencie suas turmas e visualize os feedbacks recebidos.</p>
+        <div class="actions">
+          <button class="btn btn-primary">+ Criar Nova Turma</button>
+        </div>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Engenharia de Software II</h3>
+            <p class="class-code">Código: ABC-123</p>
+            <p class="student-count">2 Alunos</p>
+            <button class="btn btn-view-feedback">Ver Feedbacks</button>
+          </div>
+          <div class="card">
+            <h3>Banco de Dados</h3>
+            <p class="class-code">Código: TCC00456</p>
+            <p class="student-count">35 Alunos</p>
+            <button class="btn btn-view-feedback">Ver Feedbacks</button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div id="modal-overlay" class="hidden">
+      <div id="inscricao-modal" class="modal hidden">
+        <h3>Inscrever-se em uma Turma</h3>
+        <p>Digite o código da turma fornecido pelo seu professor.</p>
+        <input type="text" placeholder="Ex: ABC-123" id="codigo-turma-input" />
+        <div class="modal-actions">
+          <button class="btn btn-secondary" onclick="hideModals()">
+            Cancelar
+          </button>
+          <button class="btn btn-primary">Inscrever-se</button>
+        </div>
+      </div>
+
+      <div id="feedback-modal" class="modal hidden">
+        <h3 id="feedback-modal-title">Enviar Feedback para</h3>
+        <label for="classificacao">Classificação (1 a 5):</label>
+        <input type="number" min="1" max="5" id="classificacao" value="5" />
+        <label for="comentario">Comentário (mín. 15 caracteres):</label>
+        <textarea
+          id="comentario"
+          rows="4"
+          placeholder="Deixe seu feedback anônimo aqui..."
+        ></textarea>
+        <div class="modal-actions">
+          <button class="btn btn-secondary" onclick="hideModals()">
+            Cancelar
+          </button>
+          <button class="btn btn-primary">Enviar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
