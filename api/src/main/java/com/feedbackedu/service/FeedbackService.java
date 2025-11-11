@@ -26,7 +26,7 @@ public class FeedbackService {
 
     public Feedback submeterFeedback(FeedbackCreateDTO dto, Long idTurma, Long idAluno) {
         Aluno aluno = alunoRepository.findById(idAluno)
-                .orElseThrow(() -> new IllegalArgumentException("Aluno não encontrado."));
+            .orElseThrow(() -> new IllegalArgumentException("Aluno não encontrado."));
         Turma turma = turmaRepository.findById(idTurma)
                 .orElseThrow(() -> new IllegalArgumentException("Turma não encontrada."));
 
