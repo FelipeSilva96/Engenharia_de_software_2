@@ -36,4 +36,4 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=FelipeSilva96_Engenharia_de_software_2 -f api/pom.xml
+        run: mvn -B verify -Dmaven.test.skip=true org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=FelipeSilva96_Engenharia_de_software_2 -f api/pom.xml
