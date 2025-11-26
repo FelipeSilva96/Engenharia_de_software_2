@@ -212,7 +212,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   window.abrirVerFeedbacks = function (nomeTurma) {
-    viewFeedbackTitle.textContent = `Feedbacks: ${nomeTurma}`;
+    if (!nomeTurma || typeof nomeTurma !== "string") {
+      console.error("Erro: Nome da turma inválido ao abrir feedbacks");
+      return;
+    }
+
+    if (viewFeedbackTitle)
+      viewFeedbackTitle.textContent = `Feedbacks: ${nomeTurma}`;
 
     let feedbacksSalvos = JSON.parse(
       localStorage.getItem("feedbacks_db") || "[]"
