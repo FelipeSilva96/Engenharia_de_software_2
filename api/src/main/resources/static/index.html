@@ -10,7 +10,9 @@
     <div id="login-screen" class="screen active">
       <div class="login-container">
         <h1 class="logo">Feedback.Edu</h1>
-        <h2>Acesse sua conta para continuar</h2>
+        <p style="color: #6c757d; margin-bottom: 20px">
+          Acesse sua conta para continuar
+        </p>
         <form id="login-form">
           <div class="input-group">
             <label for="email">Email</label>
@@ -32,41 +34,60 @@
           </div>
           <div class="login-options">
             <label><input type="checkbox" /> Lembrar-me</label>
-            <a href="#">Esqueceu senha?</a>
+            <a href="#" style="color: #007bff; text-decoration: none"
+              >Esqueceu senha?</a
+            >
           </div>
           <button type="submit" class="btn btn-primary">Entrar</button>
         </form>
-        <div class="divider">ou continue com</div>
-        <p class="signup-link">
-          Não tem uma conta? <a href="#">Cadastre-se</a>
+        <div
+          style="
+            margin: 20px 0;
+            border-top: 1px solid #dee2e6;
+            position: relative;
+          "
+        >
+          <span
+            style="
+              background: white;
+              padding: 0 10px;
+              position: absolute;
+              top: -12px;
+              left: 50%;
+              transform: translateX(-50%);
+              color: #6c757d;
+              font-size: 0.9rem;
+            "
+            >ou</span
+          >
+        </div>
+        <p style="font-size: 0.9rem">
+          Não tem uma conta?
+          <a href="#" style="color: #007bff; text-decoration: none"
+            >Cadastre-se</a
+          >
         </p>
       </div>
     </div>
 
     <div id="aluno-dashboard" class="screen">
       <header class="main-header">
-        <h1 class="logo">Feedback.Edu</h1>
+        <h1 class="logo" style="font-size: 1.5rem">Feedback.Edu</h1>
         <div class="user-menu">
-          <span>Olá, João Aluno</span>
+          <span>Olá, <strong>Aluno</strong></span>
           <button id="logout-aluno" class="btn btn-secondary">Sair</button>
         </div>
       </header>
-      <div class="toggle-view">
-        <p>
-          Use os botões abaixo para alternar entre a visão de Professor e Aluno.
-        </p>
-        <button id="view-prof-from-aluno" class="btn">
-          Ver como Professor
-        </button>
-        <button id="view-aluno-from-aluno" class="btn btn-primary" disabled>
-          Ver como Aluno
-        </button>
-      </div>
+
       <main class="container">
-        <h2>Bem-vindo, Aluno!</h2>
+        <h2>Painel do Aluno</h2>
         <p>Envie feedbacks anônimos sobre suas disciplinas.</p>
         <div class="actions">
-          <button class="btn btn-primary" onclick="showInscricaoModal()">
+          <button
+            class="btn btn-primary"
+            style="width: auto"
+            onclick="showInscricaoModal()"
+          >
             + Inscrever-se em Turma
           </button>
         </div>
@@ -97,39 +118,43 @@
 
     <div id="professor-dashboard" class="screen">
       <header class="main-header">
-        <h1 class="logo">Feedback.Edu</h1>
+        <h1 class="logo" style="font-size: 1.5rem">Feedback.Edu</h1>
         <div class="user-menu">
-          <span>Olá, Prof. Ana Costa</span>
+          <span>Olá, <strong>Prof. Ana Costa</strong></span>
           <button id="logout-prof" class="btn btn-secondary">Sair</button>
         </div>
       </header>
-      <div class="toggle-view">
-        <p>
-          Use os botões abaixo para alternar entre a visão de Professor e Aluno.
-        </p>
-        <button id="view-prof-from-prof" class="btn btn-primary" disabled>
-          Ver como Professor
-        </button>
-        <button id="view-aluno-from-prof" class="btn">Ver como Aluno</button>
-      </div>
+
       <main class="container">
-        <h2>Bem-vindo, Professor!</h2>
+        <h2>Painel do Professor</h2>
         <p>Gerencie suas turmas e visualize os feedbacks recebidos.</p>
         <div class="actions">
-          <button class="btn btn-primary">+ Criar Nova Turma</button>
+          <button class="btn btn-primary" style="width: auto">
+            + Criar Nova Turma
+          </button>
         </div>
         <div class="card-grid">
           <div class="card">
             <h3>Engenharia de Software II</h3>
             <p class="class-code">Código: ABC-123</p>
             <p class="student-count">2 Alunos</p>
-            <button class="btn btn-view-feedback">Ver Feedbacks</button>
+            <button
+              class="btn btn-view-feedback"
+              onclick="abrirVerFeedbacks('Engenharia de Software II')"
+            >
+              Ver Feedbacks
+            </button>
           </div>
           <div class="card">
             <h3>Banco de Dados</h3>
             <p class="class-code">Código: TCC00456</p>
             <p class="student-count">35 Alunos</p>
-            <button class="btn btn-view-feedback">Ver Feedbacks</button>
+            <button
+              class="btn btn-view-feedback"
+              onclick="abrirVerFeedbacks('Banco de Dados')"
+            >
+              Ver Feedbacks
+            </button>
           </div>
         </div>
       </main>
@@ -149,7 +174,7 @@
       </div>
 
       <div id="feedback-modal" class="modal hidden">
-        <h3 id="feedback-modal-title">Enviar Feedback para</h3>
+        <h3 id="feedback-modal-title">Enviar Feedback</h3>
         <label for="classificacao">Classificação (1 a 5):</label>
         <input type="number" min="1" max="5" id="classificacao" value="5" />
         <label for="comentario">Comentário (mín. 15 caracteres):</label>
@@ -165,8 +190,49 @@
           <button class="btn btn-primary">Enviar</button>
         </div>
       </div>
-    </div>
 
+      <div id="view-feedback-modal" class="modal hidden">
+        <h3 id="view-feedback-title">Feedbacks Recebidos</h3>
+        <p>Abaixo estão os comentários anônimos enviados pelos alunos:</p>
+        <div
+          id="feedback-list-container"
+          style="
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            text-align: left;
+          "
+        >
+          <p style="color: #666; font-style: italic">
+            Nenhum feedback recebido ainda.
+          </p>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-primary" onclick="hideModals()">Fechar</button>
+        </div>
+      </div>
+
+      <div id="create-class-modal" class="modal hidden">
+        <h3>Criar Nova Turma</h3>
+        <p>Defina os dados da nova disciplina.</p>
+        <label>Nome da Disciplina:</label>
+        <input
+          type="text"
+          id="new-class-name"
+          placeholder="Ex: Inteligência Artificial"
+        />
+        <label>Código de Inscrição:</label>
+        <input type="text" id="new-class-code" placeholder="Ex: IA-2025" />
+        <div class="modal-actions">
+          <button class="btn btn-secondary" onclick="hideModals()">
+            Cancelar
+          </button>
+          <button class="btn btn-primary" id="btn-confirm-create-class">
+            Criar Turma
+          </button>
+        </div>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
